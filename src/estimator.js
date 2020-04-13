@@ -1,5 +1,5 @@
 const covid19ImpactEstimator = (data) => {
-    const inputData = {
+    const data = {
         region: {
             name: "Africa",
             avgAge: 19.7,
@@ -11,28 +11,32 @@ const covid19ImpactEstimator = (data) => {
         reportedCases: 674,
         population: 66622705,
         totalHospitalBeds: 1380614
-     }
-     return {
-        data: {
-            inputData
-        },
+     }  
+};
+
+
+const estimatorFunction = (data) => {
+    return {
         impact: {
-           currentlyInfected: impact.currentlyInfected = reportedCases * 10,
+           currentlyInfected: impact.currentlyInfected = data.reportedCases * 10,
            infectionsByRequestedTime: impact.currentlyInfected * 512,
            severeCasesByRequestedTime: impact.infectionsByRequestedTime * 0.15,
            hospitalBedsByrequestedTime: (impact.totalHospitalBeds * 0.35) - impact.severeCasesByRequestedTime,
-   
+           casesForICUByRequestedTime: impact.infectionsByRequestedTime * 0.05,
+           casesForVentilatorsByRequestedTime: impact.infectionsByRequestedTime * 0.02,
+           dollarsInFlight: (impact.infectionsByRequestedTime * 0.65 * 1.5) / 30,
         },
         severeImpact: {
            currentlyInfected: severeImpact.currentlyInfected = reportedCases * 50,
            infectionsByRequestedTime: severeImpact.currentlyInfected * 512,
            severeCasesByRequestedTime: severeImpact.infectionsByRequestedTime * 0.15,
            hospitalBedsByrequestedTime: (severeImpact.totalHospitalBeds * 0.35) - severeImpact.severeCasesByRequestedTime,
-          
-
+           casesForICUByRequestedTime: severeImpact.infectionsByRequestedTime * 0.05,
+           casesForVentilatorsByRequestedTime: severeImpact.infectionsByRequestedTime * 0.02,
+           dollarsInFlight: (severeImpact.infectionsByRequestedTime * 0.65 * 1.5) / 30, 
         }
-    };
 
-};
+    }
+}
 
 export default covid19ImpactEstimator;
