@@ -1,5 +1,5 @@
 const covid19ImpactEstimator = (data) => {
-   const data = {
+   const input = {
     region: {
         name: "Africa",
         avgAge: 19.7,
@@ -15,8 +15,8 @@ const covid19ImpactEstimator = (data) => {
 };
 
 
-const estimatorFunction = (data) => {
-    return {
+const estimatorFunction = (input) => {
+return {
         impact: {
            currentlyInfected: impact.currentlyInfected = data.reportedCases * 10,
            infectionsByRequestedTime: impact.currentlyInfected * 512,
