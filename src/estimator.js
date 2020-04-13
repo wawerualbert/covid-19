@@ -2,8 +2,9 @@ const covid19ImpactEstimator = (data) => {
 const { reportedCases, timeToLapse, periodType, totalHospitalBeds } = data;
 const { avgDailyIncomeInUSD, avgDailyIncomePopulation } = data.region;
 
-const estimate
- if(periodType === 'months') {
+const estimate;
+
+  if(periodType === 'months') {
    estimate = Math.ceil(timeToLapse * 30);
  } else if (periodType === 'weeeks') {
    estimate = timeToLapse * 7;
